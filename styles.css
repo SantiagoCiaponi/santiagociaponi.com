@@ -1,0 +1,168 @@
+  /* =======================
+     �YZ� PALETA & VARIABLES
+     ======================= */
+  :root{
+    /* Paleta �?oAcid Wave�?? por defecto */
+    /* Boca Juniors palette */
+    --bg1:#00133a; --bg2:#002a6b; --bg3:#041e5b;
+    --neon:#ffd100; --hot:#0033a0; --gold:#ffd100; --acid:#ffef70; --red:#ff4d4d;
+    --panel:#00122acc; --white:#f6faff; --shadow:#0009;
+    --speed: 24s;      /* velocidad global de animaciones */
+    --glow: drop-shadow(0 0 10px var(--neon)) drop-shadow(0 0 18px var(--hot));
+  }
+
+.hero h1 {
+  display: block;
+  margin: 0;
+}
+
+.hero h1:first-of-type {
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+  margin-bottom: -6px;
+}
+
+.hero h1:last-of-type {
+  font-size: 4.2rem;
+}
+  /* ================
+     �YOO FONDO VIVO
+     ================ */
+  body{
+    margin:0; color:var(--white);
+    font-family:"Comic Sans MS","Trebuchet MS",system-ui,Segoe UI,Roboto,Arial,sans-serif;
+    min-height:100vh; overflow-x:hidden;
+    background: radial-gradient(90rem 35rem at 10% 0%, #ffffff0e 0%, #0000 60%),
+                radial-gradient(90rem 35rem at 90% 20%, #fff1760e 0%, #0000 60%),
+                linear-gradient(130deg,var(--bg1),var(--bg2) 45%,var(--bg3));
+    animation: gradientShift var(--speed) linear infinite;
+    cursor: crosshair;
+  }
+  @keyframes gradientShift{
+    0%{ filter:saturate(1.05) brightness(1); }
+    50%{ filter:saturate(1.1) brightness(1.06); }
+    100%{ filter:saturate(1.05) brightness(1); }
+  }
+
+  /* �o� Cabecera */
+  .hero{ text-align:center; padding:56px 14px 20px; position:relative; }
+  .hero h1{
+    font-size:clamp(34px,7vw,92px); margin:0 0 8px; letter-spacing:2px;
+    background:linear-gradient(90deg,var(--gold),#ffef70,var(--gold));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    /* Quitar difuminado/animaci��n para nitidez */
+    filter:none;
+    animation:none;
+  }
+  /* Ocultar h1 duplicados si existieran */
+  @keyframes titlePulse{
+    0%,100%{ text-shadow:0 0 10px var(--hot),0 0 20px var(--neon); transform:translateY(0); }
+    50%{ text-shadow:0 0 18px var(--hot),0 0 40px var(--neon); transform:translateY(-2px); }
+  }
+  .subtitle{ font-size:clamp(14px,2.4vw,22px); opacity:.95 }
+
+  /* �Y'� Marquesina RGB */
+  marquee{
+    font-weight:900; text-transform:uppercase; letter-spacing:1px; padding:10px 0;
+    background:linear-gradient(90deg,#001e5a,#0033a0);
+    border-top:2px dashed #ffffff33; border-bottom:2px dashed #ffffff33;
+    filter:none;
+    animation:none;
+  }
+  @keyframes marqueeHue{ to{ filter:hue-rotate(360deg); } }
+
+  /* �Y'� Luces */
+  .bulbs{ display:flex; gap:8px; justify-content:center; padding:10px 0 6px; flex-wrap:wrap; }
+  .bulb{ width:14px; height:14px; border-radius:50%; box-shadow:0 0 14px 4px #ffffff44,inset 0 0 4px 2px #0006; animation: blink 1.2s infinite; }
+  .bulb:nth-child(3n+1){ background:#ffd100; animation-delay:.0s }
+  .bulb:nth-child(3n+2){ background:#0033a0; animation-delay:.2s }
+  .bulb:nth-child(3n+3){ background:#ffd100; animation-delay:.4s }
+  @keyframes blink{ 50%{ filter:brightness(2); transform:translateY(-2px) } }
+
+  /* �Y�S Paneles */
+  .container{ width:min(1100px,92vw); margin: 18px auto 90px; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; }
+  .panel{
+    background:var(--panel); border:2px ridge #a784ff55; border-radius:12px; padding:16px 16px 18px; position:relative; overflow:hidden;
+    box-shadow:0 10px 22px var(--shadow), inset 0 0 40px #0033a022;
+    transform: perspective(800px) rotateX(0deg);
+    transition: transform .4s ease, box-shadow .4s ease;
+  }
+  .panel:hover{ transform: perspective(800px) rotateX(2.5deg) translateY(-2px); box-shadow:0 16px 28px #000a, inset 0 0 60px #0033a033; }
+  .panel h2{ margin:0 0 10px; font-size:22px; text-shadow:0 0 6px var(--neon) }
+  .panel .tag{ position:absolute; top:10px; right:-28px; rotate:8deg; background:linear-gradient(45deg,#ffd100,#ffef70); color:#00133a; font-weight:800; padding:6px 36px; border:2px solid #fff7; box-shadow:0 6px 14px #0009; }
+
+  /* �Y"~ Botones cambian solos */
+  .btn{
+    display:inline-block; padding:10px 14px; margin:6px 8px 0 0; border:3px outset #ffe;
+    background:linear-gradient(180deg,var(--gold),#ffdf4d); color:#00133a; font-weight:900; text-decoration:none; text-transform:uppercase;
+    box-shadow:0 4px 0 #0006, inset 0 0 18px #ffffffc9; transition: transform .1s ease, filter .2s linear;
+    animation:none;
+  }
+
+  /* ===== CANVAS STARFIELD ===== */
+  #stars{ position:fixed; inset:0; width:100%; height:100%; z-index:-1; }
+
+  /* ===== EMOJIS LLUVIA ===== */
+  .emoji{ position:fixed; top:-40px; font-size:28px; animation: fall var(--fallDur, 8s) linear forwards; }
+  @keyframes fall{ to{ transform: translateY(110vh) } }
+
+  /* ===== FUEGOS ARTIFICIALES ===== */
+  .burst{ position:fixed; width:4px; height:4px; left:0; top:0; transform: translate(-50%, -50%); pointer-events:none; }
+  .particle{ position:absolute; width:6px; height:6px; border-radius:50%; background: currentColor; box-shadow:0 0 10px currentColor }
+
+/* ===== CONTROLES M�?S VISIBLES (reemplaza lo que ten��as de .toolbar / .switch) ===== */
+.toolbar{
+  display:flex; flex-wrap:wrap; gap:12px; justify-content:center;
+  margin:16px auto 18px; width:min(1100px,92vw);
+}
+
+  .switch{
+  display:inline-flex; align-items:center; gap:12px;
+  font-weight:800; padding:10px 14px; border-radius:999px;
+  background:linear-gradient(90deg,#001a4a99,#0033a099);
+  border:2px solid #ffffff55;
+  box-shadow:0 8px 20px #0009, inset 0 0 20px #ffd10022;
+  color:#eaf7ff;
+}
+
+/* Toggle custom �?" sin �?oX�?? del checkbox */
+  .switch input{
+  appearance:none; -webkit-appearance:none; -moz-appearance:none;
+  width:56px; height:32px; position:relative; cursor:pointer; outline:none;
+  border-radius:999px; border:2px solid #ffffff99;
+  background:linear-gradient(180deg,#0a143a,#03123a);
+  box-shadow: inset 0 0 12px #0008, 0 0 12px #ffd166;
+  transition: background .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+/* �?operilla�?? del toggle */
+.switch input::after{
+  content:""; position:absolute; top:3px; left:3px;
+  width:24px; height:24px; border-radius:50%;
+  background:#fff; box-shadow:0 2px 8px #0008, 0 0 10px #ffffffaa;
+  transition:left .25s ease, box-shadow .25s ease;
+}
+
+/* Estado activo bien brillante */
+  .switch input:checked{
+    background:linear-gradient(90deg,#ffd100,#ffef70);
+    border-color:#fff7c2;
+    box-shadow: inset 0 0 18px #ffd166, 0 0 18px #ffef70aa;
+  }
+  .switch input:checked::after{ left:29px; box-shadow:0 2px 8px #0008, 0 0 16px #ffd100 }
+
+/* Accesible al foco */
+  .switch input:focus-visible{
+    outline:3px solid #ffd100; outline-offset:2px;
+  }
+
+/* Botones mǭs visibles tambiǸn */
+  .btn{
+  display:inline-block; padding:12px 18px; margin:6px 8px 0 0; border:3px outset #ffe;
+  background:linear-gradient(180deg,var(--gold),#ffdf4d);
+  color:#00133a; font-weight:900; text-decoration:none; text-transform:uppercase;
+  box-shadow:0 5px 0 #0007, inset 0 0 22px #ffffffd9, 0 0 14px #ffd166;
+  transition: transform .1s ease, filter .2s linear, box-shadow .2s ease;
+  animation:none;
+  }
+  .btn:active{ transform:translateY(2px); box-shadow:0 3px 0 #0009, inset 0 0 10px #ffffffd0 }

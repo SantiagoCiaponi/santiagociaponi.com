@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Bienvenidos | SANTIAGOCIAPONI.COM</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Ahora con más colores, más cosas que cambian y más neón del recomendable." />
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<canvas id="stars"></canvas>
+
+<div class="bulbs" aria-hidden="true">
+  <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+  <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+  <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+</div>
+
+
+<header class="hero">
+  <h1>Bienvenidos a</h1>
+  <h1>santiagociaponi.com</h1>
+  <p class="subtitle">Ahora con <b>colores que cambian</b>, <i>cosas que se mueven</i> y 17 moratorias de pago.</p>
+
+  
+  <div class="toolbar">
+    <label class="switch"><input type="checkbox" id="turbo"> Modo Turbo 🌪️</label>
+    <label class="switch"><input type="checkbox" id="emojiRain"> Lluvia de Emojis 🌧️</label>
+    <label class="switch"><input type="checkbox" id="cometa" checked> Cursor Cometa 💫</label>
+    <button class="btn" id="paleta">Cambiar paleta 🎨</button>
+    <button class="btn" id="boom">Fuegos Artificiales 🎇</button>
+  </div>
+
+  <div class="navlinks">
+    <a class="btn" href="#sobre-mi">Sobre mí</a>
+    <a class="btn" href="#proyectos">Proyectos</a>
+    <a class="btn" href="#descargas">Descargas</a>
+    <a class="btn" href="#instrucciones">Instrucciones</a>
+    <a class="btn" href="#libro">Libro de visitas</a>
+  </div>
+</header>
+
+
+<marquee behavior="scroll" direction="left" scrollamount="10">
+  ★★★ ESTA PÁGINA CAMBIA CONSTANTEMENTE — NO PARPADEE ★★★
+  &nbsp;&nbsp;|&nbsp;&nbsp; PRESIONÁ EN CUALQUIER LADO PARA UN FUEGO ARTIFICIAL
+  &nbsp;&nbsp;|&nbsp;&nbsp; VERSIÓN 2.0 “NEÓN ACID WAVE”
+</marquee>
+
+
+<main class="container">
+  <section class="panel" id="sobre-mi" aria-labelledby="sobre-mi-title">
+    <div class="tag">OFICIAL</div>
+    <h2 id="sobre-mi-title">👋 Qué onda, wachines</h2>
+    <p>Soy <b>Santiago Ciaponi</b>, evangelista de <i>console.log</i>, DJ de <u>pip install</u> y técnico en magia negra CSS.</p>
+    <p>Más conocido como <b>EL MAESTRO DEL SOFTWARE</b>, arquitecto de trolas.</p>
+    <p>Una vez logré compilar algo a la primera sin errores.</p>
+    <p>Visitantes:</p>
+    <span class="counter">00,001,337</span>
+  </section>
+
+  <section class="panel" id="proyectos" aria-labelledby="proyectos-title">
+    <div class="tag">WOW</div>
+    <h2 id="proyectos-title">🧪 Proyectos Legendarios</h2>
+    <ul>
+      <li><b>SANTIAGOS</b> — Intento fallido de fundar una religión basada en commits impecables y café instantáneo.</li>
+      <li><b>SongGuesser</b> — Adiviná la canción, perdé dignidad, ganá puntos e ingresa tus datos bancarios.</li>
+      <li><b>MRP/CRP &amp; IA</b> — por 10.000 usd te clonamos.</li>
+      <li><b>LINCAR</b> — Queres gestionar la producción de tolvas? este es tu lugar.</li>
+    </ul>
+    <p class="mini">*Si explota, era beta. Si no explota, seguro era yo probando en producción.</p>
+  </section>
+
+  <section class="panel" id="descargas" aria-labelledby="descargas-title">
+    <div class="tag">FREE</div>
+    <h2 id="descargas-title">⬇️ Descargas (sin virus, solo caos organizado)</h2>
+    <p>Próximamente: wallpapers, assets y un “pack de ruidos épicos” (pew-pew, cánticos de la 12 y un motor de Fiat 128 a 7 000 rpm).</p>
+    <div>
+      <a class="btn" href="#" onclick="return false;">Tutorial: cómo cambiar un flexible y tu destino</a>
+      <a class="btn" href="#" onclick="return false;">Blog Baradero Rock (edición backstage)</a>
+      <a class="btn" href="#" onclick="return false;">Sonidos 128 .wav premium</a>
+      <a class="btn" href="#" onclick="return false;">Plugin “Modo Mouche++” para VS Code</a>
+    </div>
+    <p class="mini">Links falsos, pero la fe es real.</p>
+  </section>
+
+  <section class="panel" id="instrucciones" aria-labelledby="instrucciones-title">
+    <div class="tag">READ ME</div>
+    <h2 id="instrucciones-title">📜 Instrucciones para sobrevivir a esta web</h2>
+    <ol>
+      <li>Activá <b>Modo Turbo</b> si querés que tu GPU sufra.</li>
+      <li>Probá la <b>Lluvia de Emojis</b> y contemplá la belleza del lag.</li>
+      <li>Cambiá la <b>paleta</b> hasta que sientas que tu monitor grita basta.</li>
+      <li>Firmá el libro de visitas. No da +10 pero suma karma.</li>
+    </ol>
+  </section>
+
+  <section class="panel" id="libro" aria-labelledby="libro-title">
+    <div class="tag">NEW</div>
+    <h2 id="libro-title">📖 Libro de visitas</h2>
+    <form class="guestbook" action="#" method="get"
+      onsubmit="alert('¡Gracias por tu mensaje épico! (Simulado, pero igual cuenta)'); return false;">
+      <div class="row">
+        <div>
+          <label for="nombre">Tu nombre</label>
+          <input id="nombre" name="nombre" placeholder="Aka, apodo o 'Anónimo 2003'">
+        </div>
+        <div>
+          <label for="email">Mail (opcional)</label>
+          <input id="email" name="email" placeholder="tunombre@proveedor.com">
+        </div>
+      </div>
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" name="mensaje" rows="5" placeholder="Dejá tu huella digital o una confesión de código..."></textarea>
+      <div style="margin-top:10px">
+        <button class="btn" type="submit">Firmar Libro</button>
+        <a class="btn" href="mailto:contacto@santiagociaponi.com">Mandar e-mail</a>
+      </div>
+    </form>
+  </section>
+
+  <section class="panel">
+    <div class="tag">BONUS</div>
+    <h2>💾 Bonus Track</h2>
+    <ul>
+      <li>Compatible con 800×600 px, parlantes saturados y cafeína en vena.</li>
+      <li>Soporte experimental para control mental (requiere casco de papel aluminio).</li>
+      <li>Botones que cambian de color solos (efecto psicológico no reversible).</li>
+      <li>Si gritás “¡Moucheee!” la página renderiza más rápido.</li>
+    </ul>
+  </section>
+</main>
+
+
+<footer>
+  <p>© <span id="year">2003–2025</span> Santiago Ciaponi — <i>Hecho con amor, vino y HTML crudo.</i></p>
+  <p>Webring: <a class="btn" href="#" onclick="return false;">← Sitio anterior</a> <a class="btn" href="#" onclick="return false;">Siguiente sitio →</a></p>
+</footer>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
+
+
+
+
