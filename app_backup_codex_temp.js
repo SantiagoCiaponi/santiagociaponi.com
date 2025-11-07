@@ -1,7 +1,7 @@
-// A��o dinǭmico
-document.getElementById("year").textContent = "2003-" + new Date().getFullYear();
+// Año dinámico
+document.getElementById("year").textContent = "2003–" + new Date().getFullYear();
 
-// �YOY Starfield minimalista
+// 🌟 Starfield minimalista
 const canvas = document.getElementById("stars");
 const ctx = canvas.getContext("2d");
 let W, H, stars = [];
@@ -12,9 +12,9 @@ const STAR_COUNT = 180;
   const mq = document.querySelector("marquee");
   if (mq) {
     mq.innerHTML =
-      "BIENVENIDOS, XENEIZES �Y'T�Y'> MODO BOMBONERA ACTIVADO �Y'� PABLO MOUCHE 7 TE SALUDA" +
+      "BIENVENIDOS, XENEIZES 💙💛 MODO BOMBONERA ACTIVADO 💥 PABLO MOUCHE 7 TE SALUDA" +
       "&nbsp;&nbsp;|&nbsp;&nbsp; CLICK EN CUALQUIER LADO = FUEGO ARTIFICIAL" +
-      "&nbsp;&nbsp;|&nbsp;&nbsp; VERSI\"N ESPECIAL AZUL Y ORO ANTIRIVER";
+      "&nbsp;&nbsp;|&nbsp;&nbsp; VERSIÓN ESPECIAL AZUL Y ORO ANTIRIVER";
   }
 })();
 
@@ -47,16 +47,15 @@ addEventListener("resize", resize);
 resize();
 drawStars();
 
-// �s� Modo Turbo: acelera animaciones
+// ⚡ Modo Turbo: acelera animaciones
 const turbo = document.getElementById("turbo");
 turbo.addEventListener("change", (e) => {
   document.documentElement.style.setProperty("--speed", e.target.checked ? "10s" : "24s");
-  document.documentElement.style.setProperty("--fallFactor", e.target.checked ? "0.6" : "1");
 });
 
-// �YZ� Paletas predefinidas (modo Boca)
+// 🎨 Paletas predefinidas (modo Boca)
 const themes = [
-  // Boca clǭsico
+  // Boca clásico
   { bg1: "#00133a", bg2: "#002a6b", bg3: "#041e5b", neon: "#ffd100", hot: "#0033a0", gold: "#ffd100", acid: "#ffef70", panel: "#00122acc" },
   // Boca noche
   { bg1: "#000b26", bg2: "#001c4a", bg3: "#0033a0", neon: "#ffda33", hot: "#00246b", gold: "#ffda33", acid: "#ffe680", panel: "#02122acc" },
@@ -71,7 +70,7 @@ document.getElementById("paleta").addEventListener("click", () => {
   });
 });
 
-// �Y'� Cursor cometa
+// 💫 Cursor cometa
 let cometEnabled = true;
 const cometaChk = document.getElementById("cometa");
 cometaChk.addEventListener("change", (e) => (cometEnabled = e.target.checked));
@@ -80,14 +79,14 @@ addEventListener("mousemove", (e) => {
   if (!cometEnabled) return;
   const dot = document.createElement("div");
   dot.className = "trail";
-  dot.style.left = e.clientX + "px";
-  dot.style.top = e.clientY + "px";
+  dot.style.left = e.clientX - 5 + "px";
+  dot.style.top = e.clientY - 5 + "px";
   document.body.appendChild(dot);
   setTimeout(() => dot.remove(), 700);
 });
 
-// �YO���? Lluvia de emojis
-const emojiList = ["�Y'T", "�Y'>", "�s�", "�Y"�", "�Y?�", "�Y��", "�YZ�", "�Y\u0007��?", "�Y?Y��?", "�Y��", "�YZ%"];
+// 🌧️ Lluvia de emojis
+const emojiList = ["💙", "💛", "⚽", "🔥", "🏆", "🧤", "🎺", "🕶️", "🏟️", "🥇", "🎉"];
 let rainInterval = null;
 
 function spawnEmoji() {
@@ -110,7 +109,7 @@ document.getElementById("emojiRain").addEventListener("change", (e) => {
   }
 });
 
-// �YZ� Fuegos artificiales (click/tap)
+// 🎇 Fuegos artificiales (click/tap)
 function firework(x, y) {
   const colors = ["#ff3bd4", "#00ffd1", "#fffb82", "#9dff00", "#7dd3fc", "#a78bfa", "#ff4d4d"];
   const base = document.createElement("div");
@@ -150,4 +149,3 @@ document.getElementById("boom").addEventListener("click", () => {
   const y = innerHeight * 0.35 + (Math.random() * 120 - 60);
   firework(x, y);
 });
-
